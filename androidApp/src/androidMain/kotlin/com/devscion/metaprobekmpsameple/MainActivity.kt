@@ -1,4 +1,4 @@
-package com.myapplication
+package com.devscion.metaprobekmpsameple
 
 import MainView
 import android.os.Bundle

@@ -13,7 +13,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "shared"
+            baseName = "sample"
             isStatic = true
         }
     }
@@ -23,16 +23,21 @@ kotlin {
             dependencies {
                 implementation(compose.runtime)
                 implementation(compose.foundation)
-                implementation(compose.material)
+                implementation(compose.material3)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
+                implementation(project(":MetaProbeKMP"))
+                api("tech.dev-scion:typist-cmp:1.1.2")
+                implementation("media.kamel:kamel-image:0.7.3")
+//                implementation("io.ktor:ktor-client-core:2.3.4")
             }
         }
         val androidMain by getting {
             dependencies {
                 api("androidx.activity:activity-compose:1.7.2")
                 api("androidx.appcompat:appcompat:1.6.1")
-                api("androidx.core:core-ktx:1.10.1")
+                api("androidx.core:core-ktx:1.12.0")
+                implementation("io.ktor:ktor-client-android:2.3.4")
             }
         }
         val iosX64Main by getting
@@ -43,13 +48,16 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
+            dependencies{
+//                implementation("io.ktor:ktor-client-darwin:2.3.4")
+            }
         }
     }
 }
 
 android {
     compileSdk = (findProperty("android.compileSdk") as String).toInt()
-    namespace = "com.myapplication.common"
+    namespace = "com.devscion.metaprobekmpsameple"
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res")

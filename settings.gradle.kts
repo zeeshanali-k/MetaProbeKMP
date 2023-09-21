@@ -1,7 +1,7 @@
 rootProject.name = "MyApplication"
 
 include(":androidApp")
-include(":shared")
+include(":sample")
 
 pluginManagement {
     repositories {
@@ -38,3 +38,5 @@ dependencyResolutionManagement {
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }
+include(":MetaProbeKMP")
+//include(":check")
