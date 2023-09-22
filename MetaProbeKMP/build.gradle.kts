@@ -1,14 +1,21 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("com.vanniktech.maven.publish") version("0.24.0")
+    id("com.vanniktech.maven.publish") version("0.25.3")
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
     targetHierarchy.default()
 
-    androidTarget()
+    androidTarget{
+        publishLibraryVariants("release")
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "1.8"
+            }
+        }
+    }
 
     listOf(
         iosX64(),
@@ -36,18 +43,11 @@ kotlin {
     }
 }
 
+
 android {
     namespace = "com.devscion.metaprobekmp"
-    compileSdk = (findProperty("android.compileSdk") as String).toInt()
+    compileSdk = 34
     defaultConfig {
-        minSdk = (findProperty("android.minSdk") as String).toInt()
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-    kotlin {
-        jvmToolchain(17)
+        minSdk = 24
     }
 }

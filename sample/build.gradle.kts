@@ -27,6 +27,7 @@ kotlin {
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
                 implementation(project(":MetaProbeKMP"))
+//                implementation("tech.dev-scion:metaprobe-kmp:1.0.0")
                 api("tech.dev-scion:typist-cmp:1.1.2")
                 implementation("media.kamel:kamel-image:0.7.3")
 //                implementation("io.ktor:ktor-client-core:2.3.4")
