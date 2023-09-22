@@ -15,7 +15,7 @@ A sample usage is also provided in code along with the design most social media 
 Add following dependency to your shared module gradle file and make sure `mavenCentral()` is added in repositories in your `settings.gradle` file.
 
 ```kotlin
-implementation("tech.dev-scion:metaprobe:1.0.1")
+implementation("tech.dev-scion:metaprobe-kmp:1.0.1")
 ```
 
 Also add the following dependency in `androidMain` block under `dependencies` section/block in order for app to work on android. Update client version from ktor engines page. (I haven't yet figured out, why it is needed for android)
