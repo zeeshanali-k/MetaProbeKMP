@@ -5,7 +5,7 @@ A simple Kotlin Multiplatform library for fetching link details like Title, Desc
 
 For Native Android Check <a href="https://github.com/zeeshanali-k/MetaProbe">MetaProbe</a>
 
-<img src="/imgs/ss_1.png" height="300px">
+<img src="/imgs/ss_1.png"><img src="/imgs/ss_2.png">
 
 
 ## Usage
