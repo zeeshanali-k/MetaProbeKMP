@@ -51,7 +51,7 @@ MetaProbe(url)
                 },
             )
 ```
-Fold here is just an Convinience Extension Method of Kotlin `Result` Class, so you can also use it without it.
+Fold here is just an Convinience Extension Method of Kotlin `Result` Class, so you can also use MetaProbe without it.
 
 For Callback Method Use this code:
 
