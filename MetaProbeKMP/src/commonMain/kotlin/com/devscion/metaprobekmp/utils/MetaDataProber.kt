@@ -9,7 +9,6 @@ import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.IO
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -18,7 +17,7 @@ class MetaDataProber {
 
     suspend fun fetchMetadataSuspend(httpClient: HttpClient, url: String): Result<ProbedData> {
         return try {
-            withContext(Dispatchers.IO) {
+            withContext(Dispatchers.Default) {
                 val httpResponse: HttpResponse = httpClient.get(url)
                 if (httpResponse.status.value == 200) {
                     val html = httpResponse.bodyAsText()
@@ -27,7 +26,7 @@ class MetaDataProber {
                     var description: String? = null
                     var title: String? = null
                     val handler = KsoupHtmlHandler.Builder()
-                        .onOpenTag { name, attributes, isImplied ->
+                        .onOpenTag { _, attributes, _ ->
                             if (attributes.containsKey("rel")
                                 && attributes.containsKey("class")
                                 && attributes.containsKey("href") &&
@@ -121,7 +120,7 @@ class MetaDataProber {
         url: String,
         callback: (Result<ProbedData>) -> Unit
     ) {
-        CoroutineScope(Dispatchers.IO).launch {
+        CoroutineScope(Dispatchers.Default).launch {
             fetchMetadataSuspend(httpClient, url).let(callback)
         }
     }

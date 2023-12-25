@@ -6,7 +6,7 @@ plugins {
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
-    targetHierarchy.default()
+    kotlin.applyDefaultHierarchyTemplate()
 
     androidTarget{
         publishLibraryVariants("release")
@@ -16,6 +16,13 @@ kotlin {
             }
         }
     }
+
+
+    js(IR) {
+        browser()
+    }
+
+    jvm("desktop")
 
     listOf(
         iosX64(),
@@ -28,11 +35,16 @@ kotlin {
     }
 
     sourceSets {
+        val desktopMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-apache5:2.3.3")
+            }
+        }
         val commonMain by getting {
             dependencies {
                 implementation("com.mohamedrejeb.ksoup:ksoup-html:0.2.1")
                 //ktor
-                implementation("io.ktor:ktor-client-core:2.3.4")
+                implementation("io.ktor:ktor-client-core:2.3.6")
             }
         }
         val commonTest by getting {

@@ -1,7 +1,10 @@
 rootProject.name = "MyApplication"
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+include(":desktop")
 include(":androidApp")
 include(":sample")
+include(":web")
 
 pluginManagement {
     repositories {
