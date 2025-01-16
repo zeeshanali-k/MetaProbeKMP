@@ -30,7 +30,7 @@ jobs:
         run: bash ./gradlew :androidApp:assembleDebug --stacktrace
         
       - name: Upload APK to Github Artifacts
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: app
           path: androidApp/build/outputs/apk/debug/androidApp-debug.apk
