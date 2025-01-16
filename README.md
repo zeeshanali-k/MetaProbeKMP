@@ -1,7 +1,7 @@
 [![Maven Central](https://img.shields.io/maven-central/v/tech.dev-scion/metaprobe-kmp.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22tech.dev-scion%22%20AND%20a:%22metaprobe-kmp%22)
 
 # MetaProbe KMP
-A simple Kotlin Multiplatform library for fetching link details like Title, Description, Icon and OG Image effortlessly based on <a href="https://ktor.io/docs/">Ktor</a> for fetching HTML from provided URL and <a href="https://github.com/MohamedRejeb/Ksoup">Ksoup</a> for parsing Meta Data. The usecase of this library could be seen in Social Media and Messaging Apps. MetaProve KMP currently supports Android , iOS, Desktop and Web (Web is kind of experimetal and might not work).
+A simple Kotlin Multiplatform library for fetching link details like Title, Description, Icon and OG Image effortlessly based on <a href="https://ktor.io/docs/">Ktor</a> for fetching HTML from provided URL and <a href="https://github.com/MohamedRejeb/Ksoup">Ksoup</a> for parsing Meta Data. The usecase of this library could be seen in Social Media and Messaging Apps. MetaProbe currently supports Android , iOS, Desktop and Web (Web is kind of experimetal and might not work).
 
 <img src="/imgs/ss_1.png" width="250" height="520"><img src="/imgs/ss_2.png" width="250" height="520">
 
